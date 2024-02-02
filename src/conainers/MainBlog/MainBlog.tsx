@@ -28,19 +28,27 @@ const MainBlog:React.FC = () => {
     }, [fetchData]);
 
     return (
-        <div className="d-flex">
-            <div className="col-6">
-                {countriesState.map((country, index) => (
-                    <Countries key={index}
-                               country={country}
-                               onClick={() => setSelectedCountryCode(country.alpha3Code)}
-                    />
-                ))}
+        <>
+            <nav className="navbar bg-primary position-fixed  text-uppercase top-0 start-0 w-100">
+                <div className="container-fluid ">
+                    <h1 className="navbar-brand">Countries</h1>
+                </div>
+            </nav>
+            <div className="d-flex mt-3">
+                <div className="col-6">
+                    <h2 className="mt-3 p-2">Country list</h2>
+                    {countriesState.map((country, index) => (
+                        <Countries key={index}
+                                   country={country}
+                                   onClick={() => setSelectedCountryCode(country.alpha3Code)}
+                        />
+                    ))}
+                </div>
+                <div className="col-6">
+                    <CountryInfo alphaCode={selectedCountryCode} />
+                </div>
             </div>
-            <div className="col-6">
-                <CountryInfo alphaCode={selectedCountryCode} />
-            </div>
-        </div>
+        </>
     );
 };
 

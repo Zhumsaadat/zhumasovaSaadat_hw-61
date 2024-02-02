@@ -9,7 +9,9 @@ const Countries: React.FC<Props> = ({country, onClick}) => {
 
     return (
         <>
-          <div className='text-start p-1 m-2 bg-light-subtle' onClick={onClick}>{country.name}</div>
+            <div className="border border-black shadow mt-3 p-2 " onClick={onClick}>
+                {country.name}
+            </div>
         </>
     );
 };
